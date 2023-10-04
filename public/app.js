@@ -16,47 +16,52 @@ let conditions = [
 
 // Function to handle player moves
 const ticTacToe = (element, index) => {
-    // Your game logic here
-
-    /*
-    **Part 1: Winning Conditions (Add your code here)**
-
-    1. Implement the logic to check for winning conditions using the 'conditions' array.
-    2. Display a winning message in the 'result' element when a player wins.
-    3. Disable all buttons after a win.
-    */
-
-    // Your code to update the game state and check for a win
-    // ...
-
-    // Your code to display the current player's turn
-    // ...
-
-    // Your code to handle button and cell interactions
-    // ...
+    // Check if the cell is already filled or if the game is won
+    if (cells[index] === '' && result.textContent === '') {
+        // Update the cell with the current player's symbol
+        cells[index] = currentPlayer;
+        element.textContent = currentPlayer;
+        
+        // Check for winning conditions
+        for (const condition of conditions) {
+            const [a, b, c] = condition;
+            if (cells[a] && cells[a] === cells[b] && cells[a] === cells[c]) {
+                result.textContent = `Player ${currentPlayer} wins!`;
+                // Disable all buttons
+                btns.forEach(btn => btn.disabled = true);
+                return;
+            }
+        }
+        
+        // Check for a draw
+        if (cells.every(cell => cell !== '')) {
+            result.textContent = "It's a draw!";
+            return;
+        }
+        
+        // Switch players
+        currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
+        
+        // Display the current player's turn
+        result.textContent = `Player ${currentPlayer}'s Turn`;
+    }
 };
-
-    /*
-    **Part 2: Reset Function (Add your code here)**
-
-    1. Implement a new function that resets the game to its initial state.
-    2. Ensure the 'cells', 'btns', and 'currentPlayer' variables are reset.
-    3. Update the 'result' element to indicate the current player's turn.
-    4. Re-enable all buttons for a new game.
-    */
 
 // Function to reset the game
 const resetGame = () => {
-    // Your code to reset the game state
-    // ...
-
-    // Your code to update the 'result' element
-    // ...
-
-    // Your code to re-enable buttons
-    // ...
+    // Reset the game state
+    cells = ['', '', '', '', '', '', '', '', ''];
+    currentPlayer = 'X';
+    result.textContent = "Player X's Turn";
+    
+    // Clear the board and re-enable buttons
+    btns.forEach(btn => {
+        btn.textContent = '';
+        btn.disabled = false;
+    });
 };
 
+// Event listeners
 btns.forEach((btn, i) => {
     btn.addEventListener('click', () => ticTacToe(btn, i));
 });
