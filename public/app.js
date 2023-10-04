@@ -2,7 +2,7 @@
 let cells = ['', '', '', '', '', '', '', '', ''];
 let currentPlayer = 'X';
 let result = document.querySelector('.result');
-let btns = document.querySelectorAll('.btn');
+let cellButtons = document.querySelectorAll('.cell');
 let conditions = [
     [0, 1, 2],
     [3, 4, 5],
@@ -20,15 +20,15 @@ const ticTacToe = (index) => {
     if (cells[index] === '' && result.textContent === '') {
         // Update the cell with the current player's symbol
         cells[index] = currentPlayer;
-        btns[index].textContent = currentPlayer;
+        cellButtons[index].textContent = currentPlayer;
         
         // Check for winning conditions
         for (const condition of conditions) {
             const [a, b, c] = condition;
             if (cells[a] && cells[a] === cells[b] && cells[a] === cells[c]) {
                 result.textContent = `Player ${currentPlayer} wins!`;
-                // Disable all buttons
-                btns.forEach(btn => btn.disabled = true);
+                // Disable all cell buttons
+                cellButtons.forEach(button => button.disabled = true);
                 return;
             }
         }
@@ -54,9 +54,12 @@ const resetGame = () => {
     currentPlayer = 'X';
     result.textContent = "Player X's Turn";
     
-    // Clear the board and re-enable buttons
-    btns.forEach((btn, index) => {
-        btn.textContent = '';
-        btn.disabled = false;
+    // Clear the board (cell buttons) and re-enable them
+    cellButtons.forEach((button, index) => {
+        button.textContent = '';
+        button.disabled = false;
     });
 };
+
+// Initialize the game
+resetGame();
