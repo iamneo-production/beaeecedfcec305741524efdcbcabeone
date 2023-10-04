@@ -28,5 +28,27 @@ header{
   background-color: rgba(255,255,255,0.7);
   border:1px solid #000;
   text-align: center;
-  
+  max-width: 200px;
+  margin: 0 auto;
+  padding: 10px;
 }
+
+.result{
+  color: white;
+  text-shadow: 1px 1px 2px #888;
+  font-size: 25px;
+}
+
+.reset-btn{
+  border: 1px;
+  color:#000;
+  cursor: not-allowed;
+  background-color: white;
+  width: 100px;
+  height: 40px;
+  font-size: 18px;
+  transition: background-color 0.3s, color 0.3s;
+}
+ 
+.reset-btn 
+
