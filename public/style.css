@@ -9,4 +9,24 @@ body {
     font-family: "Radio Canada", sans-serif;
   }
   
-/* Enter your styling here */
+header{
+  text-align:center;
+  color:white;
+  text-shadow: 1px 1px 2px #888;
+  font-size:50px
+}
+
+.box{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 35px;
+}
+
+.result-container{
+  background-color: rgba(255,255,255,0.7);
+  border:1px solid #000;
+  text-align: center;
+  
+}
