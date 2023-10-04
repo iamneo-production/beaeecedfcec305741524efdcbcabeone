@@ -50,5 +50,8 @@ header{
   transition: background-color 0.3s, color 0.3s;
 }
  
-.reset-btn 
+.reset-btn:hover{
+  background-color: #000;
+  color:white;
+} 
 
