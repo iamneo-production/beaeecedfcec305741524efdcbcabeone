@@ -15,12 +15,12 @@ let conditions = [
 ];
 
 // Function to handle player moves
-const ticTacToe = (element, index) => {
+const ticTacToe = (index) => {
     // Check if the cell is already filled or if the game is won
     if (cells[index] === '' && result.textContent === '') {
         // Update the cell with the current player's symbol
         cells[index] = currentPlayer;
-        element.textContent = currentPlayer;
+        btns[index].textContent = currentPlayer;
         
         // Check for winning conditions
         for (const condition of conditions) {
@@ -55,15 +55,8 @@ const resetGame = () => {
     result.textContent = "Player X's Turn";
     
     // Clear the board and re-enable buttons
-    btns.forEach(btn => {
+    btns.forEach((btn, index) => {
         btn.textContent = '';
         btn.disabled = false;
     });
 };
-
-// Event listeners
-btns.forEach((btn, i) => {
-    btn.addEventListener('click', () => ticTacToe(btn, i));
-});
-
-document.querySelector('#reset').addEventListener('click', resetGame);

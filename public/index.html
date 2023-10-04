@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>tic_tac_toe</title>
+  <title>Tic Tac Toe</title>
   <link rel="stylesheet" type="text/css" href="style.css" />
   <!-- Link the style.css and app.js files -->
   <script src="app.js"></script>
@@ -17,19 +17,19 @@
     <div class="board">
       <table>
         <tr>
-          <td><input type="button" class="btn" /></td>
-          <td><input type="button" class="btn" /></td>
-          <td><input type="button" class="btn" /></td>
+          <td><button class="btn" onclick="ticTacToe(0)"></button></td>
+          <td><button class="btn" onclick="ticTacToe(1)"></button></td>
+          <td><button class="btn" onclick="ticTacToe(2)"></button></td>
         </tr>
         <tr>
-          <td><input type="button" class="btn" /></td>
-          <td><input type="button" class="btn" /></td>
-          <td><input type="button" class="btn" /></td>
+          <td><button class="btn" onclick="ticTacToe(3)"></button></td>
+          <td><button class="btn" onclick="ticTacToe(4)"></button></td>
+          <td><button class="btn" onclick="ticTacToe(5)"></button></td>
         </tr>
         <tr>
-          <td><input type="button" class="btn" /></td>
-          <td><input type="button" class="btn" /></td>
-          <td><input type="button" class="btn" /></td>
+          <td><button class="btn" onclick="ticTacToe(6)"></button></td>
+          <td><button class="btn" onclick="ticTacToe(7)"></button></td>
+          <td><button class="btn" onclick="ticTacToe(8)"></button></td>
         </tr>
       </table>
     </div>
@@ -38,7 +38,7 @@
     <p class="result">Player X's Turn</p>
   </div>
   <div class="reset-section">
-    <button class="reset-btn" disabled>Reset</button>
+    <button class="reset-btn" onclick="resetGame()" disabled>Reset</button>
   </div>
 </body>
 </html>
